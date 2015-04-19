@@ -23,13 +23,13 @@ def writeByUser(user_id,words):
     os.chdir("../data/user/")
     if not user_dictionary.has_key(user_id):
         user_dictionary[user_id] = True
-        f = open(file_name,'a')
+        f = open(file_name,'ab')
         write = csv.writer(f)
         write.writerow(['date','item_id','behavior_type','user_geohash','item_category','hour'])
         write.writerow(words)
         f.close()
     else:
-        f = open(file_name,'a')
+        f = open(file_name,'ab')
         write = csv.writer(f)
         write.writerow(words)
         f.close()

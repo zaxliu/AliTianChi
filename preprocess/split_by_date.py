@@ -15,24 +15,23 @@ import os
 #记录已存在的date.csv
 date_dictionary = {}
    
-#将words写入date.csv文件最后一行，文件打开采用'a'模式，即在原文件后添加（add）
+#将words写入date.csv文件最后一行，文件打开采用'aw'模式，即在原文件后采用二进制添加
 def writeByDate(date,words):
     file_name = date+".csv"
     os.chdir('../data/date/')
     if not date_dictionary.has_key(date):
         date_dictionary[date] = True
-        f = open(file_name,'a')
+        f = open(file_name,'ab')
         write = csv.writer(f)
         write.writerow(['user_id','item_id','behavior_type','user_geohash','item_category','hour'])
         write.writerow(words)
         f.close()
     else:
-        f = open(file_name,'a')
+        f = open(file_name,'ab')
         write = csv.writer(f)
         write.writerow(words)
         f.close()
     os.chdir('../../preprocess/')
-
 
 #主函数
 def splitByDate():

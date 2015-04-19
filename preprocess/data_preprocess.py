@@ -7,7 +7,7 @@
 
 
 """
-
+import pdb
 import time
 from split_by_date import splitByDate
 from split_by_user import splitByUser
@@ -15,7 +15,7 @@ from gen_iid_geohash_category import genIid
 from gen_uid_iid import genUidIid
 
 
-
+pdb.set_trace()
 if __name__ == "__main__":
     print "====================================="
     t0 = time.time()
