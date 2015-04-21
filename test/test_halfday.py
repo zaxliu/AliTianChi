@@ -11,7 +11,7 @@ import numpy as np
 import time
 import pdb
 
-pdb.set_trace()
+# pdb.set_trace()
 #测试天数,用每天预测后一天，因此是31-1
 numDays = 30
 
@@ -50,15 +50,15 @@ for idxDay in range(numDays):
     #预测（规则：对于商品子集里的商品，前一天加购物车且没买的，预测下一天购买）
     for key in dictTrDay:
         uid,iid = key     
-        if  item.has_key(iid) and dictTrDay[key][0][2]>0 and dictTrDay[key][0][3]==0 and dictTrDay[key][3][2][-1]>12: 
+        if item.has_key(iid) and dictTrDay[key][0][2] > 0 and dictTrDay[key][0][3] == 0 and dictTrDay[key][3][2][-1] > 11:
             result[key] = 1
-            B = B+1
+            B += 1
             if dictTtDay.has_key(key) and dictTtDay[key][0][3]>0:
-                A = A+1
+                A += 1
     for key in dictTtDay:
         uid,iid = key
         if item.has_key(iid) and dictTtDay[key][0][3]>0:
-            C = C+1
+            C += 1
     resultList.append(result)
     prec[idxDay] = A/B
     recall[idxDay] = A/C

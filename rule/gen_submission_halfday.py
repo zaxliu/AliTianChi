@@ -20,7 +20,7 @@ dictTrDay = cPickle.load(open("../data/dictionary/date/2014-"+trDay+".pkl","rb")
 #预测（规则：对于商品子集里的商品，前一天加购物车且没买的，预测下一天购买）
 for key in dictTrDay:
     uid,iid = key     
-    if  item.has_key(iid) and dictTrDay[key][0][2]>0 and dictTrDay[key][0][3]==0 and dictTrDay[key][3][2][-1]>12: 
+    if item.has_key(iid) and dictTrDay[key][0][2] > 0 and dictTrDay[key][0][3] == 0 and dictTrDay[key][3][2][-1] > 13:
         result[key] = 1
 
 #写入文件
