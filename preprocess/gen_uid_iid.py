@@ -18,7 +18,7 @@ import csv
 import cPickle
 import pdb
 
-#pdb.set_trace()
+# pdb.set_trace()
 
 def genUidIid():
 	os.mkdir("../data/dictionary/date")

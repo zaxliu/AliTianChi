@@ -14,18 +14,17 @@ from split_by_user import splitByUser
 from gen_iid_geohash_category import genIid
 from gen_uid_iid import genUidIid
 
-
-#pdb.set_trace()
+# pdb.set_trace()
 if __name__ == "__main__":
     print "====================================="
     t0 = time.time()
-    # splitByDate()
+    splitByDate()
     t1 = time.time()
     print "It takes %f s to split by date,generate 'data/date/*.csv'" %(t1-t0)
-    # splitByUser()
+    splitByUser()
     t2 = time.time()
     print "It takes %f s to split by user,generate 'data/user/*.csv'" %(t2-t1)
-    # genIid()
+    genIid()
     t3 = time.time()
     print "It takes %f s to make dictionary{iid:[geohash,category]},generate 'data/dictionary/item.pkl'" %(t3-t2)
     genUidIid()
