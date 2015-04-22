@@ -40,17 +40,17 @@ cnt_addChart = np.zeros((2, numDays, 24*lookAhead))
 cnt_buy = np.zeros((2, numDays, 24*lookAhead))
 
 # item列表
-item = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/item.pkl", "rb"))
+item = cPickle.load(open("../../AliTianChi_data/dictionary/item.pkl", "rb"))
 
 # 计数主循环
 for idxDay in range(numDays):
     # 读取相应词典
     anchorDay = anchorDayList[idxDay]
-    anchorDayDict = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+anchorDay+".pkl","rb"))
+    anchorDayDict = cPickle.load(open("../../AliTianChi_data/dictionary/date/2014-"+anchorDay+".pkl","rb"))
     aheadDaysDictList = []
     for idx_ahead in range(lookAhead):
         aheadDay = aheadDaysList[idx_ahead][idxDay]
-        aheadDaysDictList.append(cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+aheadDay+".pkl","rb")))
+        aheadDaysDictList.append(cPickle.load(open("../../AliTianChi_data/dictionary/date/2014-"+aheadDay+".pkl","rb")))
     print "Counting for " + anchorDay
     # 循环读取anchorDay中出现的购买行为，并对前序窗口内行为进行计数
     for key in anchorDayDict:
@@ -71,15 +71,15 @@ for idxDay in range(numDays):
 
 # 存储数据
 print "Saving results..."
-f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/count/cnt_view.pkl", 'wb')
+f = open("../../AliTianChi_data/count/cnt_view.pkl", 'wb')
 cPickle.dump(cnt_view, f, -1)
 f.close()
-f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/count/cnt_like.pkl", 'wb')
+f = open("../../AliTianChi_data/count/cnt_like.pkl", 'wb')
 cPickle.dump(cnt_like, f, -1)
 f.close()
-f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/count/cnt_addChart.pkl", 'wb')
+f = open("../../AliTianChi_data/count/cnt_addChart.pkl", 'wb')
 cPickle.dump(cnt_addChart, f, -1)
 f.close()
-f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/count/cnt_buy.pkl", 'wb')
+f = open("../../AliTianChi_data/count/cnt_buy.pkl", 'wb')
 cPickle.dump(cnt_buy, f, -1)
 f.close()
