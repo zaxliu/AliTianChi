@@ -20,7 +20,7 @@ user_dictionary = {}
 
 def writeByUser(user_id,words):
     file_name = user_id+".csv"
-    os.chdir("../data/user/")
+    os.chdir("D:/My Documents/GitHub/Tianchi/AliTianChi_data/user/")
     if not user_dictionary.has_key(user_id):
         user_dictionary[user_id] = True
         f = open(file_name,'ab')
@@ -33,12 +33,12 @@ def writeByUser(user_id,words):
         write = csv.writer(f)
         write.writerow(words)
         f.close()
-    os.chdir("../../preprocess/")
+    os.chdir("D:/My Documents/GitHub/Tianchi/AliTianChi/preprocess/")
 
 
 def splitByUser():
-    os.mkdir("../data/user/")
-    directory = "../data/date/"
+    os.mkdir("D:/My Documents/GitHub/Tianchi/AliTianChi_data/user/")
+    directory = "D:/My Documents/GitHub/Tianchi/AliTianChi_data/date/"
     csvlist = os.listdir(directory)
     csvlist.sort()
     for eachcsv in csvlist:

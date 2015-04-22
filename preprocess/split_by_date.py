@@ -18,7 +18,7 @@ date_dictionary = {}
 #将words写入date.csv文件最后一行，文件打开采用'aw'模式，即在原文件后采用二进制添加
 def writeByDate(date,words):
     file_name = date+".csv"
-    os.chdir('../data/date/')
+    os.chdir('D:/My Documents/GitHub/Tianchi/AliTianChi_data/date/')
     if not date_dictionary.has_key(date):
         date_dictionary[date] = True
         f = open(file_name,'ab')
@@ -31,12 +31,12 @@ def writeByDate(date,words):
         write = csv.writer(f)
         write.writerow(words)
         f.close()
-    os.chdir('../../preprocess/')
+    os.chdir('D:/My Documents/GitHub/Tianchi/AliTianChi/preprocess/')
 
 #主函数
 def splitByDate():
-    os.mkdir('../data/date')
-    f = open("../data/tianchi_mobile_recommend_train_user.csv")
+    os.mkdir('D:/My Documents/GitHub/Tianchi/AliTianChi_data/date')
+    f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/tianchi_mobile_recommend_train_user.csv")
     rows = csv.reader(f)
     rows.next()
     for row in rows:

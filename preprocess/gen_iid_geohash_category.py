@@ -13,8 +13,8 @@ import csv
 import cPickle
 
 def genIid():
-    os.mkdir("../data/dictionary")
-    file_path = "../data/tianchi_mobile_recommend_train_item.csv"
+    os.mkdir("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary")
+    file_path = "D:/My Documents/GitHub/Tianchi/AliTianChi_data/tianchi_mobile_recommend_train_item.csv"
 
     f = open(file_path,'rb')
     rows = csv.reader(f)

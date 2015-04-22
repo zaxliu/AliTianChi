@@ -44,9 +44,9 @@ for idxDay in range(numDays):
     result = {}
     #训练集和测试集
     trDay = trDays[idxDay]
-    dictTrDay = cPickle.load(open("../data/dictionary/date/2014-"+trDay+".pkl","rb")) 
+    dictTrDay = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+trDay+".pkl","rb"))
     ttDay = ttDays[idxDay]
-    dictTtDay = cPickle.load(open("../data/dictionary/date/2014-"+ttDay+".pkl","rb"))
+    dictTtDay = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+ttDay+".pkl","rb"))
     #预测（规则：对于商品子集里的商品，前一天加购物车且没买的，预测下一天购买）
     for key in dictTrDay:
         uid,iid = key     

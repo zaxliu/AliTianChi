@@ -21,8 +21,8 @@ import pdb
 # pdb.set_trace()
 
 def genUidIid():
-	os.mkdir("../data/dictionary/date")
-	direction = "../data/date/"
+	os.mkdir("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date")
+	direction = "D:/My Documents/GitHub/Tianchi/AliTianChi_data/date/"
 	file_list = os.listdir(direction)
 	for file_name in file_list:
 	    file_path = direction+file_name
@@ -47,7 +47,7 @@ def genUidIid():
 		print dictionary[sample]
 	    f.close()
             
-	    f = open("../data/dictionary/date/"+file_name.split('.')[0]+".pkl",'wb')
+	    f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/"+file_name.split('.')[0]+".pkl",'wb')
 	    cPickle.dump(dictionary,f,-1)
 	    f.close()
 
