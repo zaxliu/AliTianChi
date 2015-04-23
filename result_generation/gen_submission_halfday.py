@@ -12,12 +12,12 @@ import time
 # import pdb
 
 # item列表
-item = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/item.pkl", "rb"))
+item = cPickle.load(open("../../AliTianChi_data/dictionary/item.pkl", "rb"))
 
 result = {}
 trDay = '12-18'
 hour = 18
-dictTrDay = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+trDay+".pkl", "rb"))
+dictTrDay = cPickle.load(open("../../AliTianChi_data/dictionary/date/2014-"+trDay+".pkl", "rb"))
 # 预测（规则：对于商品子集里的商品，前一天加购物车且没买的，预测下一天购买）
 for key in dictTrDay:
     uid, iid = key
@@ -25,7 +25,7 @@ for key in dictTrDay:
         result[key] = 1
 
 # 写入文件
-f = open("D:/My Documents/GitHub/Tianchi/AliTianChi_Results/predict_Halfday_"
+f = open("../../AliTianChi_Results/predict_Halfday_"
          + str(hour) + "H_"
          + time.strftime("%y%m%d_%H%M%S", time.gmtime(time.time()))+".csv", "wb")
 write = csv.writer(f)

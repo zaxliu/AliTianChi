@@ -12,16 +12,16 @@ import time
 import pdb
 
 # pdb.set_trace()
-# 测试天数,用每天预测后一天，因此是31-1
-numDays = 30
+# 测试天数,用每天预测后一天，因此是(31-1)/2
+numDays = 30/2
 
 # 生成训练集每天月份-日期的字符串
-trEpochs = np.array(time.mktime((2014,11,19,0,0,0,1,322,0))) + np.arange(0,30,1)*60*60*24
+trEpochs = np.array(time.mktime((2014,11,19,0,0,0,1,322,0))) + np.arange(0,30,2)*60*60*24
 trDays = []
 for epoch in trEpochs:
     trDays.append(time.strftime("%m-%d",time.gmtime(epoch)))
 # 生成测试集每天月份-日期的字符串
-ttEpochs = np.array(time.mktime((2014,11,20,0,0,0,1,322,0))) + np.arange(0,30,1)*60*60*24
+ttEpochs = np.array(time.mktime((2014,11,20,0,0,0,1,322,0))) + np.arange(0,30,2)*60*60*24
 ttDays = []
 for epoch in ttEpochs:
     ttDays.append(time.strftime("%m-%d",time.gmtime(epoch)))
@@ -29,7 +29,7 @@ for epoch in ttEpochs:
 resultList = []
 
 # item列表
-item = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/item.pkl","rb"))
+item = cPickle.load(open("../../AliTianChi_data/dictionary/item.pkl","rb"))
 
 # precision和recall
 prec = np.zeros([numDays])
@@ -44,9 +44,9 @@ for idxDay in range(numDays):
     result = {}
     # 训练集和测试集
     trDay = trDays[idxDay]
-    dictTrDay = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+trDay+".pkl", "rb"))
+    dictTrDay = cPickle.load(open("../../AliTianChi_data/dictionary/date/2014-"+trDay+".pkl", "rb"))
     ttDay = ttDays[idxDay]
-    dictTtDay = cPickle.load(open("D:/My Documents/GitHub/Tianchi/AliTianChi_data/dictionary/date/2014-"+ttDay+".pkl", "rb"))
+    dictTtDay = cPickle.load(open("../../AliTianChi_data/dictionary/date/2014-"+ttDay+".pkl", "rb"))
     # 预测（规则：对于商品子集里的商品，前一天加购物车且没买的，预测下一天购买）
     for key in dictTrDay:
         uid, iid = key
